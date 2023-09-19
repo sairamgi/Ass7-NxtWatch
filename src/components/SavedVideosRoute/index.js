@@ -22,7 +22,7 @@ import {
   HomeStickyContainer,
   HomeSideContainer,
   HomeContainer,
-  image,
+  Image,
   NotFoundContainer,
   Heading,
   Desc,

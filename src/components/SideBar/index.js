@@ -74,7 +74,7 @@ class SideBar extends Component {
                 >
                   <AiFillFire />
                   <ItemText
-                    color={activeTab === 'TRENDING' ? '#ff0000' : {bfColor}}
+                    color={activeTab === 'TRENDING' ? '#ff0000' : {bgColor}}
                   >
                     Trending
                   </ItemText>

@@ -77,7 +77,7 @@ class GamingRoute extends Component {
   }
 
   renderLoadingView = () => (
-    ;<ProductsLoaderContainer
+    <ProductsLoaderContainer
       className="products-loader-container"
       data-testid="loader"
     >
@@ -85,92 +85,94 @@ class GamingRoute extends Component {
     </ProductsLoaderContainer>
   )
 
-  renderGamingVideos=()=>(
-      <CartContext.Consumer>
-          {value =>{
-              const{isDarkTheme}=value
+  renderGamingVideos = () => (
+    <CartContext.Consumer>
+      {value => {
+        const {isDarkTheme} = value
 
-              const{searchedVideos}=this.state
+        const {searchedVideos} = this.state
 
-              const bgColor=isDarkTheme?'#231f20' : '#0f0f0f'
+        const bgColor = isDarkTheme ? '#231f20' : '#0f0f0f'
 
-              return (
-                  <SearchVideosContainer data-testid="gaming" bgColor={bgColor}>
-                      <h1>Gaming</h1>
-                      <VideosContainer bgColor={bgColor}>
-                          {searchedVideos.map(each=>(
-                              <VideoCardTwo key={each.id} details={each}/>
-                          ))}
-                      </VideosContainer>
-                  </SearchVideosContainer>
-              )
-          }}
-      </CartContext.Consumer>
+        return (
+          <SearchVideosContainer data-testid="gaming" bgColor={bgColor}>
+            <h1>Gaming</h1>
+            <VideosContainer bgColor={bgColor}>
+              {searchedVideos.map(each => (
+                <VideoCardTwo key={each.id} details={each} />
+              ))}
+            </VideosContainer>
+          </SearchVideosContainer>
+        )
+      }}
+    </CartContext.Consumer>
   )
 
+  renderFailureView = () => (
+    <NotFoundContainer>
+      <Image
+        src="https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png"
+        alt="failure view"
+        className="jobs-failure-img"
+      />
 
-  renderFailureView=()=>(
-      <NotFoundContainer>
-          <Image 
-          src="https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png"
-          alt="failure view"
-          className="jobs-failure-img"/>
-
-          <Heading>Oops! Something Went Wrong</Heading>
-          <Desc className="jobs-failure-description">
-              We have some trouble to complete your request.Please try again.
-          </Desc>
-          <NavLink>
-              <Retry 
-              className="button"
-              type="button"
-              onClick={this.getSuggestionVideos}>Retry</Retry>
-
-          </NavLink>
-      </NotFoundContainer>
+      <Heading>Oops! Something Went Wrong</Heading>
+      <Desc className="jobs-failure-description">
+        We have some trouble to complete your request.Please try again.
+      </Desc>
+      <NavLink>
+        <Retry
+          className="button"
+          type="button"
+          onClick={this.getSuggestionVideos}
+        >
+          Retry
+        </Retry>
+      </NavLink>
+    </NotFoundContainer>
   )
 
-  renderAllVideos=()=>{
-      const {apiStatus} = this.state
+  renderAllVideos = () => {
+    const {apiStatus} = this.state
 
-      switch (apiStatus){
-          case apiStatusConstants.success:
-              return this.renderGamingVideos()
-          
-          case apiStatusConstants.inProgress:
-              return this.renderLoadingView()
-              
-          case apiStatusConstants.failure:
-              return this.renderFailureView()
-          default:
-              return null      
-      }
+    switch (apiStatus) {
+      case apiStatusConstants.success:
+        return this.renderGamingVideos()
+
+      case apiStatusConstants.inProgress:
+        return this.renderLoadingView()
+
+      case apiStatusConstants.failure:
+        return this.renderFailureView()
+      default:
+        return null
+    }
   }
 
-  render(){
-      return(
-          <CartContext.Consumer>
-              {value=>{
-                  const {isDarkTheme}=value
+  render() {
+    return (
+      <CartContext.Consumer>
+        {value => {
+          const {isDarkTheme} = value
 
-                  const bgColor:isDarkTheme?'#0f0f0f':'#f9f9f9'
+          const bgColor = isDarkTheme ? '#0f0f0f' : '#f9f9f9'
 
-                  return (
-                      <div data-testid="home">
-                          <Header/>
-                          <HomeContainer data-testid="home" bgColor={bgColor}>
-                              <HomeStickyContainer>
-                                  <SideBar/>
-                              </HomeStickyContainer>
-                              <HomeSideContainer bgColor={bgColor}>
-                                  {this.renderAllVideos()}
-                              </HomeSideContainer>
-                          </HomeContainer>
-                      </div>
-                  )
-              }}
-          </CartContext.Consumer>
-      )
+          return (
+            <div data-testid="home">
+              <Header />
+              <HomeContainer data-testid="home" bgColor={bgColor}>
+                <HomeStickyContainer>
+                  <SideBar />
+                </HomeStickyContainer>
+                <HomeSideContainer bgColor={bgColor}>
+                  {this.renderAllVideos()}
+                </HomeSideContainer>
+              </HomeContainer>
+            </div>
+          )
+        }}
+      </CartContext.Consumer>
+    )
   }
 }
 

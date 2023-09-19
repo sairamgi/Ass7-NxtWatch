@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {link} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 export const VideoCardContainer = styled.div`
   display: flex;

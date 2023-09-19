@@ -18,8 +18,8 @@ const VideoCard = props => {
   return (
     <CartContext.Consumer>
       {value => {
-        const {isdarkTheme} = value
-        const bgColor = isdarkTheme ? '#181818' : '#f9f9f9'
+        const {isDarkTheme} = value
+        const bgColor = isDarkTheme ? '#181818' : '#f9f9f9'
 
         const textColor = isDarkTheme ? '#f9f9f9' : '#181818'
         return (

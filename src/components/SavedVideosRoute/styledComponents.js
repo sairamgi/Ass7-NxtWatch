@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
-import {prop} from 'cheerio/lib/api/attributes'
 
 export const SearchVideosContainer = styled.div`
   display: flex;

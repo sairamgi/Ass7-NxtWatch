@@ -1,4 +1,4 @@
-import styled from 'styled-compoenet'
+import styled from 'styled-components'
 
 export const NavHeader = styled.nav`
   display: flex;
@@ -99,7 +99,7 @@ export const AlignColumn = styled.div`
   padding: 20px;
 `
 
-export const ProfileImage = styled.img`
+export const ProfileImg = styled.img`
   width: 40px;
 `
 

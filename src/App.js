@@ -14,7 +14,6 @@ import CartContext from './context/CartContext'
 
 import './App.css'
 
-// Replace your code here
 class App extends Component {
   state = {
     isDarkTheme: false,
@@ -28,7 +27,7 @@ class App extends Component {
 
   addToSaveVideos = videoDetails => {
     const {savedVideos} = this.state
-    const videoObject = savedVideos.find(each => each.id === VideoDetails.id)
+    const videoObject = savedVideos.find(each => each.id === videoDetails.id)
 
     if (videoObject) {
       this.setState(prev => ({

@@ -1,4 +1,4 @@
-import {Component} from 'react'
+import {Components} from 'react'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
 import {AiOutlineSearch} from 'react-icons/ai'
@@ -61,7 +61,7 @@ class SearchVideos extends Components {
       apiStatus: apiStatusConstants.inProgress,
     })
     const jwtToken = Cookies.get('jwt_Token')
-    const apiUrl = 'https://apis.ccbp.in/videos/all?search=${search}'
+    const apiUrl = `https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png`
     const options = {
       headers: {
         Authorization: `Bearer ${jwtToken}`,
@@ -133,7 +133,7 @@ class SearchVideos extends Components {
             <div>
               <searchInput
                 type="search"
-                placeHolder="Search"
+                placeholder="Search"
                 value={searchInput}
                 onChange={this.onChangeSearchInput}
                 onKeyDown={this.onEnterClickSearch}
