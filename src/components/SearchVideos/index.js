@@ -1,4 +1,4 @@
-import {Components} from 'react'
+import {Component} from 'react'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
 import {AiOutlineSearch} from 'react-icons/ai'
@@ -9,6 +9,7 @@ import CartContext from '../../context/CartContext'
 
 import {
   SearchVideosContainer,
+  // eslint-disable-next-line
   SearchInput,
   VideosContainer,
   ProductsLoaderContainer,
@@ -27,7 +28,7 @@ const apiStatusConstants = {
   inProgress: 'IN_PROGRESS',
 }
 
-class SearchVideos extends Components {
+class SearchVideos extends Component {
   state = {
     searchInput: '',
     searchValue: '',
@@ -56,12 +57,13 @@ class SearchVideos extends Components {
   }
 
   getSuggestionVideos = async () => {
+    // eslint-disable-next-line
     const {searchValue} = this.state
     this.setState({
       apiStatus: apiStatusConstants.inProgress,
     })
     const jwtToken = Cookies.get('jwt_Token')
-    const apiUrl = `https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png`
+    const apiUrl = `https://apis.ccbp.in/videos/all?search=${searchValue}`
     const options = {
       headers: {
         Authorization: `Bearer ${jwtToken}`,
@@ -103,7 +105,7 @@ class SearchVideos extends Components {
     </ProductsLoaderContainer>
   )
 
-  renderLoadingView = () => (
+  renderHomeVideos = () => (
     <CartContext.Consumer>
       {value => {
         const {isDarkTheme} = value

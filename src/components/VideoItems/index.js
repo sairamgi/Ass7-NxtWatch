@@ -13,7 +13,7 @@ import {
 const VideoCard = props => {
   const {details} = props
   const {channel, title, id, thumbnailUrl, publishedAt, viewCount} = details
-  const {name, ProfileImageUrl} = channel
+  const {name, profileImageUrl} = channel
 
   return (
     <CartContext.Consumer>
@@ -27,16 +27,14 @@ const VideoCard = props => {
             <VideoCardContainer bgColor={bgColor}>
               <ThumbnailImage src={thumbnailUrl} alt="video thumbnail" />
               <VideoCardBottomContainer>
-                <ProfileImage src={ProfileImageUrl} alt="channel logo" />
+                <ProfileImage src={profileImageUrl} alt="channel logo" />
                 <VideoDetailsContainer>
                   <VideoDetailsText color={textColor}>{title}</VideoDetailsText>
                   <VideoDetailsText color={textColor}>{name}</VideoDetailsText>
                   <VideoDetailsText color={textColor}>
                     {viewCount} views
                   </VideoDetailsText>
-                  <VideoDetailsText color={textColor}>
-                    {publishedAt}
-                  </VideoDetailsText>
+                  <VideoDetailsText>{publishedAt}</VideoDetailsText>
                 </VideoDetailsContainer>
               </VideoCardBottomContainer>
             </VideoCardContainer>

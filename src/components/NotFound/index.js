@@ -2,8 +2,8 @@ import {NotFoundContainer, Heading, Desc, Image} from './styledComponents'
 
 import CartContext from '../../context/CartContext'
 
-const NotFound = () => {
-  ;<CartContext.Consumer>
+const NotFound = () => (
+  <CartContext.Consumer>
     {value => {
       const {isDarkTheme} = value
 
@@ -24,12 +24,14 @@ const NotFound = () => {
             <Heading isDark={isDarkHeading} isDarkTheme>
               Page Not Found
             </Heading>
-            <Desc isDark={isDarkDesc}>We are sorry! page not found</Desc>
+            <Desc isDark={isDarkDesc}>
+              We are sorry,the page you requested could not found.
+            </Desc>
           </NotFoundContainer>
         </>
       )
     }}
   </CartContext.Consumer>
-}
+)
 
 export default NotFound

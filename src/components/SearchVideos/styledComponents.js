@@ -63,13 +63,13 @@ export const Desc = styled.p`
   font-size: 30px;
 `
 
-export const NavLink = styled.styled(Link)`
-display:flex;
-justify-content:center;
-align-items:center;
-color:#1e293b;
-text-decoration:none;
-margin-bottom:32px;
+export const NavLink = styled(Link)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #1e293b;
+  text-decoration: none;
+  margin-bottom: 32px;
 `
 
 export const Retry = styled.button`

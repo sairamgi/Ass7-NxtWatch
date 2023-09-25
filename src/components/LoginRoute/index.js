@@ -48,7 +48,7 @@ class LoginForm extends Component {
   }
 
   submitForm = async event => {
-    event.preventDefualt()
+    event.preventDefault()
     const {username, password} = this.state
     const userDetails = {username, password}
     const url = 'https://apis.ccbp.in/login'
@@ -81,7 +81,6 @@ class LoginForm extends Component {
           onChange={this.onChangePassword}
           placeholder="Password"
         />
-
         <ShowHideContainer>
           <CheckBoxInput
             type="checkbox"

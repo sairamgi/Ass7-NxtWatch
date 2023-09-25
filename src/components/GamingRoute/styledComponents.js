@@ -83,7 +83,6 @@ export const Desc = styled.p`
   text-align: center;
   font-size: 20px;
 `
-
 export const NavLink = styled(Link)`
   display: flex;
   justify-content: center;

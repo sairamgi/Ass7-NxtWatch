@@ -22,6 +22,7 @@ import {
   HomeStickyContainer,
   HomeSideContainer,
   HomeContainer,
+  // eslint-disable-next-line
   Image,
   NotFoundContainer,
   Heading,
@@ -43,11 +44,11 @@ class SavedVideosRoute extends Component {
 
         return isVideosAvailable ? (
           <NotFoundContainer bgColor={bgColor}>
-            <image
+            <Image
               src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-saved-videos-img.png"
               alt="no saved videos"
             />
-            <Heading classsName="cart-empty-heading" textColor={textColor}>
+            <Heading className="cart-empty-heading" textColor={textColor}>
               No saved videos found
             </Heading>
             <Desc textColor={textColor}>

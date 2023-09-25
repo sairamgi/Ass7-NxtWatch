@@ -50,7 +50,8 @@ const apiStatusConstants = {
 class VideoDetails extends Component {
   state = {
     videoDetails: [],
-    apiStatus: apiStatusConstants.inProgress,
+    // eslint-disable-next-line
+    apiStatus: apiStatusConstants.initial,
     isVideoSaved: false,
     isLiked: false,
     isDisliked: false,
@@ -66,6 +67,7 @@ class VideoDetails extends Component {
     const {id} = params
 
     this.setState({
+      // eslint-disable-next-line
       apiStatus: apiStatusConstants.inProgress,
     })
     const jwtToken = Cookies.get('jwt_token')
@@ -97,11 +99,13 @@ class VideoDetails extends Component {
       console.log(updatedData)
       this.setState({
         videoDetails: updatedData,
+        // eslint-disable-next-line
         apiStatus: apiStatusConstants.success,
       })
     }
     if (response.ok !== true) {
       this.setState({
+        // eslint-disable-next-line
         apiStatus: apiStatusConstants.failure,
       })
     }
@@ -119,7 +123,7 @@ class VideoDetails extends Component {
           videoUrl,
           title,
           publishedAt,
-          VideoSaved,
+          videoSaved,
         } = videoDetails
         const {name, profileImageUrl, subscriberCount} = channel
         const {addToSaveVideos, removeSaveVideos} = value
@@ -128,7 +132,7 @@ class VideoDetails extends Component {
           if (isVideoSaved === true) {
             removeSaveVideos(id)
           } else {
-            addToSaveVideos({...videoDetails, VideoSaved: true})
+            addToSaveVideos({...videoDetails, videoSaved: true})
           }
         }
 
@@ -151,7 +155,7 @@ class VideoDetails extends Component {
         }
 
         const likeClass = isLiked ? '#2563eb' : '#64748b'
-        const disLikeClass = isDisliked ? '#2563eb' : '#64748b'
+        const dislikeClass = isDisliked ? '#2563eb' : '#64748b'
 
         const likeIcon = isLiked ? <AiFillLike /> : <AiOutlineLike />
         const dislikeIcon = isDisliked ? (
@@ -187,19 +191,19 @@ class VideoDetails extends Component {
                         <ViewsText color={likeClass}>Like</ViewsText>
                       </IconContainer>
                       <IconContainer
-                        color={disLikeClass}
+                        color={dislikeClass}
                         type="button"
                         onClick={onClickDislikeButton}
                       >
                         {dislikeIcon}
-                        <ViewsText color={disLikeClass}>Dislike</ViewsText>
+                        <ViewsText color={dislikeClass}>Dislike</ViewsText>
                       </IconContainer>
                       <IconContainer
                         onClick={saveVideoToList}
-                        color={VideoSaved ? '#4f46e5' : '#181818'}
+                        color={videoSaved ? '#4f46e5' : '#181818'}
                       >
                         <RiPlayListAddFill />
-                        <ViewsText color={VideoSaved ? '4f46e5' : '#181818'}>
+                        <ViewsText color={videoSaved ? '4f46e5' : '#181818'}>
                           {isVideoSaved ? 'Saved' : 'Save'}
                         </ViewsText>
                       </IconContainer>
@@ -243,7 +247,7 @@ class VideoDetails extends Component {
       />
       <Heading>oops! Something went wrong</Heading>
       <Desc className="jobs-failure-description">
-        We have some trouble.Please try again.
+        We are having some trouble to complete your request.Please try again.
       </Desc>
       <NavLink>
         <Retry
@@ -258,7 +262,7 @@ class VideoDetails extends Component {
   )
 
   renderAllVideos = () => {
-    const {apiStatus} = this.setState
+    const {apiStatus} = this.state
 
     switch (apiStatus) {
       case apiStatusConstants.success:

@@ -97,7 +97,7 @@ export const Image = styled.img`
   margin: 10px;
 `
 
-export const Heading = styled.hi`
+export const Heading = styled.h1`
   color: black;
   font-size: 30px;
   margin: 15px;

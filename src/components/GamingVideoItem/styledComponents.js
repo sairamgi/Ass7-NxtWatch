@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
 
-export const VideoCardContainer = styled.div`
+export const VideoCardContainer = styled.li`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

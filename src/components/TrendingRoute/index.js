@@ -67,7 +67,7 @@ class TrendingRoute extends Component {
         id: each.id,
         channel: {
           name: each.channel.name,
-          ProfileImageUrl: each.channel.profile_image_url,
+          profileImageUrl: each.channel.profile_image_url,
         },
         publishedAt: each.published_at,
         thumbnailUrl: each.thumbnail_url,
@@ -123,7 +123,7 @@ class TrendingRoute extends Component {
       className="products-loader-container"
       data-testid="loader"
     >
-      <Loader type="ThreeDots" color="#0b6ff" height="50" width="50" />
+      <Loader type="ThreeDots" color="#0b69ff" height="50" width="50" />
     </ProductsLoaderContainer>
   )
 

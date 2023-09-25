@@ -82,7 +82,7 @@ class SideBar extends Component {
               </TextItemContainer>
               <TextItemContainer
                 isActive={activeTab === 'GAMING' ? '#f1f5f9' : 'transparent'}
-                onClik={onClickGamingTabItem}
+                onClick={onClickGamingTabItem}
               >
                 <NavLink
                   to="/gaming"

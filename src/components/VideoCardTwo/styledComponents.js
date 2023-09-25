@@ -30,11 +30,10 @@ export const ProfileImage = styled.img`
   margin-right: 10px;
 `
 
-export const VideoDetailsContainer = styled.p`
-  color: ${props => props.textColor};
-  font-family: 'Roboto';
-  font-size: ${props => props.size}px;
-  font-weight: bold;
+export const VideoDetailsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-left: 25px;
 `
 
 export const VideoDetailsText = styled.p`
